@@ -11,9 +11,16 @@
         <legend>feedback form</legend>
         <p>Required fields are labelled with "required".</p>
         <div>
-          <label for="user_email">Email:</label>
-          <input type="email" name="user_email" id="user_email" required />
+          <label for="user_email">Email*:</label>
+          <input
+            type="email"
+            name="user_email"
+            id="user_email"
+            minlength="8"
+            required
+          />
           <span></span>
+          <span id="emailError"></span>
         </div>
         <div>
           <label for="country">Country</label>

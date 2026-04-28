@@ -5,7 +5,7 @@ body {
 }
 
 fieldset {
-  width: fit-content;
+  width: 19rem;
   margin: 30px auto 0;
   padding: 0 30px;
 }
@@ -17,7 +17,6 @@ button {
   font-size: 100%;
   font-family: inherit;
   box-sizing: border-box;
-  width: 100%;
   padding: 5px;
   height: 30px;
 }
@@ -66,13 +65,13 @@ input:required + span::after {
   background-color: black;
   color: white;
   padding: 4px;
-  left: 240px;
+  left: 235px;
   bottom: 35px;
 }
 
 input + span::before {
   position: absolute;
-  left: 320px;
+  left: 310px;
   bottom: 6px;
 }
 
@@ -80,14 +79,33 @@ input:invalid {
   border: 2px solid red;
 }
 
-input:invalid + span::before {
+/* email */
+
+input,
+select {
+  width: 19rem;
+}
+
+span {
+  max-width: 19rem;
+}
+
+#user_email:invalid + span::before,
+#user_email:user-invalid + span::before {
   content: '✖';
   color: red;
 }
 
-input:valid + span::before {
+#user_email:valid + span::before,
+#user_email:user-valid + span::before {
   content: '✓';
   color: green;
+}
+
+#emailError {
+  display: block;
+  width: 19rem;
+  color: red;
 }
 
 /* input:out-of-range + span::after {
