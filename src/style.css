@@ -1,4 +1,96 @@
-/* styles.css */
+@import 'https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap';
+
 body {
-  background-color: rebeccapurple;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+fieldset {
+  width: fit-content;
+  margin: 30px auto 0;
+  padding: 0 30px;
+}
+
+input,
+button {
+  display: block;
+  font-size: 100%;
+  font-family: inherit;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  height: 30px;
+}
+
+button {
+  width: 50%;
+  margin: 0 auto;
+}
+
+fieldset > div {
+  margin-bottom: 20px;
+}
+
+legend {
+  padding: 5px 10px;
+  margin: 10px;
+  background-color: black;
+  color: white;
+}
+
+input {
+  box-shadow: inset 1px 1px 3px #cccccc;
+  border-radius: 5px;
+}
+
+input:hover,
+input:focus {
+  background-color: #eeeeee;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input + span {
+  position: relative;
+}
+
+input:required + span::after {
+  content: 'required';
+  position: absolute;
+  background-color: black;
+  color: white;
+  padding: 4px;
+  left: 260px;
+  bottom: 35px;
+}
+
+input + span::before {
+  position: absolute;
+  left: 346px;
+  bottom: 6px;
+}
+
+input:invalid {
+  border: 2px solid red;
+}
+
+input:invalid + span::before {
+  content: '✖';
+  color: red;
+}
+
+input:valid + span::before {
+  content: '✓';
+  color: green;
+}
+
+input:out-of-range + span::after {
+  color: white;
+  background-color: red;
+  content: 'Outside allowable value range';
+  width: fit-content;
+  white-space: nowrap;
+  left: 100px;
 }

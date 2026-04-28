@@ -4,6 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <form action="backend" method="get/post">
+      <fieldset>
+        <legend>feedback form</legend>
+        <p>Required fields are labelled with "required".</p>
+        <div>
+          <label for="fname">First name:</label>
+          <input type="text" name="fname" id="fname" required />
+          <span></span>
+        </div>
+        <div>
+          <label for="age">Age (12+)</label>
+          <input
+            type="number"
+            name="age"
+            id="age"
+            min="12"
+            max="120"
+            required
+          />
+          <span></span>
+        </div>
+        <div>
+          <label for="user_email"
+            >Email address (include if you want a response):</label
+          >
+          <input type="email" name="user_email" id="user_email" />
+          <span></span>
+        </div>
+        <div>
+          <button class="btn" type="submit">Send me</button>
+        </div>
+      </fieldset>
+    </form>
+  </body>
 </html>

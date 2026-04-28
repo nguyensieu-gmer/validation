@@ -1,21 +1,6 @@
-import "./style.css";
-import { greeting } from "./greeting.js";
-import doraemon from "./doraemon.jpeg";
+import './style.css';
 
-console.log(greeting);
-const img = document.createElement("img");
-img.src = doraemon;
-
-document.body.appendChild(img);
-
-const sum = (a, b) => {
-  a + b;
-};
-
-console.log(sum(1, 2));
-
-const mutyply = (a, b) => {
-  return a * b;
-};
-
-// this is a comment
+let btn = document.querySelector('form');
+btn.addEventListener('submit', (e) => {
+  e.defaultPrevented();
+});
