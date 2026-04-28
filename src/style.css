@@ -90,20 +90,32 @@ span {
   max-width: 19rem;
 }
 
-#user_email:invalid + span::before,
 #user_email:user-invalid + span::before {
   content: '✖';
   color: red;
 }
 
-#user_email:valid + span::before,
 #user_email:user-valid + span::before {
   content: '✓';
   color: green;
 }
 
-#emailError {
+.error {
   display: block;
   width: 19rem;
   color: red;
+}
+/* postal */
+.invalid + span::before {
+  content: '✖';
+  color: red;
+}
+
+.invalid {
+  border: 2px solid red;
+}
+
+.valid + span::before {
+  content: '✓';
+  color: green;
 }
