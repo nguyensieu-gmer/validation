@@ -6,6 +6,9 @@ class ValidateForm {
         this.btn = document.querySelector('form');
         this.postal = document.getElementById('postal');
         this.country = document.getElementById('country');
+        this.password = document.getElementById('password');
+        this.passwordConfirm = document.getElementById('confirm_password');
+        this.isValidForm = true;
 
         this.init();
     }
@@ -27,6 +30,58 @@ class ValidateForm {
         this.country.addEventListener('change', () => {
             this.handlePostalCode();
         });
+        this.password.addEventListener('input', () => {
+            this.handleValidatePassword();
+        });
+        this.password.addEventListener('change', () => {
+            this.handleValidatePassword();
+        });
+        this.passwordConfirm.addEventListener('input', () => {
+            this.handleConfirmPassword();
+        });
+        this.passwordConfirm.addEventListener('change', () => {
+            this.handleConfirmPassword();
+        });
+    }
+    handleConfirmPassword() {
+        const confirmError = document.getElementById('confirmError');
+        const isValid = this.password.value === this.passwordConfirm.value;
+        this.passwordConfirm.classList.toggle('valid', isValid);
+        this.passwordConfirm.classList.toggle('invalid', !isValid);
+        confirmError.textContent = isValid
+            ? ''
+            : 'confirm password must same as above password';
+        if (!isValid) this.isValidForm = false;
+    }
+
+    handleValidatePassword() {
+        const rules = {
+            length: (v) => {
+                return v.length >= Number(this.password.minLength);
+            },
+            number: (v) => {
+                return /[0-9]/.test(v);
+            },
+            capital: (v) => {
+                return /[A-Z]/.test(v);
+            },
+        };
+
+        let allTrue = true;
+
+        const value = this.password.value;
+        for (let rule in rules) {
+            let valid = rules[rule](value);
+            document.getElementById(rule).classList.toggle('okay', valid);
+            if (!valid) {
+                allTrue = false;
+            }
+        }
+
+        this.password.classList.toggle('valid', allTrue);
+        this.password.classList.toggle('invalid', !allTrue);
+
+        if (!allTrue) this.isValidForm = false;
     }
 
     handlePostalCode() {
@@ -70,6 +125,8 @@ class ValidateForm {
 
         this.postal.classList.toggle('valid', isValid);
         this.postal.classList.toggle('invalid', !isValid);
+
+        if (!isValid) this.isValidForm = false;
     }
 
     HandleValidateEmail() {
@@ -77,6 +134,8 @@ class ValidateForm {
         if (this.userEmail.validity.valid) {
             emailError.textContent = '';
             return;
+        } else {
+            this.isValidForm = false;
         }
 
         if (this.userEmail.validity.valueMissing) {

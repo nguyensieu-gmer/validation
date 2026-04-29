@@ -40,8 +40,19 @@
         </div>
         <div>
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required
+            minlength="6"
+          />
           <span></span>
+          <div id="listOfRule">
+            <span class="error" id="length">At least 6 character</span>
+            <span class="error" id="number">At least a number</span>
+            <span class="error" id="capital">At least a capital</span>
+          </div>
         </div>
         <div>
           <label for="confirm_password">Cofirm password</label>
@@ -49,8 +60,10 @@
             type="password"
             name="confirm_password"
             id="confirm_password"
+            required
           />
           <span></span>
+          <span class="error" id="confirmError"></span>
         </div>
         <div>
           <button class="btn" type="submit">Send me</button>

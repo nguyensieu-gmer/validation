@@ -119,3 +119,15 @@ span {
   content: '✓';
   color: green;
 }
+/* password */
+#listOfRule {
+  display: none;
+}
+
+#password:focus-within ~ #listOfRule {
+  display: block;
+}
+
+.okay {
+  color: green;
+}
