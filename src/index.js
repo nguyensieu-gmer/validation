@@ -9,6 +9,7 @@ class ValidateForm {
         this.password = document.getElementById('password');
         this.passwordConfirm = document.getElementById('confirm_password');
         this.isValidForm = true;
+        this.endDialog = document.getElementById('endDialog');
 
         this.init();
     }
@@ -16,6 +17,17 @@ class ValidateForm {
     init() {
         this.btn.addEventListener('submit', (e) => {
             e.preventDefault();
+
+            this.isValidForm = true;
+
+            this.HandleValidateEmail();
+            this.handlePostalCode();
+            this.handleValidatePassword();
+            this.handleConfirmPassword();
+
+            if (this.isValidForm) {
+                this.endDialog.showModal();
+            }
         });
         this.userEmail.addEventListener('input', () => {
             this.HandleValidateEmail();
